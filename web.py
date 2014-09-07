@@ -32,7 +32,7 @@ def contact():
 	return render_template('contact.html')
 @app.route('/plot')
 def plot():
-	img = os.path.join(BASE_DIR + '/app/data/WCH.pngs')
+	img = os.path.join(BASE_DIR + '/app/data/WCH.png')
 	return send_file(img, mimetype='image/png')
 
 if __name__ == "__main__":
