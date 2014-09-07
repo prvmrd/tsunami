@@ -1,5 +1,4 @@
-i = 0
-while i < 10:
-	f = open('f', 'w')
-	f.write(str(i))
-	i += 1	
+import time
+while True:
+	print 'hi'
+	time.sleep(5)
