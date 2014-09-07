@@ -1,0 +1,77 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  padding-top: 50px;
+  background-color:#eeeeee;
+  margin-bottom: 60px;
+}
+.starter-template {
+  padding: 20px 15px;
+  text-align: left;
+}
+p{
+    font-size: 16px;
+}
+li{
+	margin-left:35px;
+    font-size: 16px;
+}
+#boxed{
+	color:solid balck;
+	margin-top:10px;
+	margin-left:40px;
+	margin-right:40px;
+	border:1px solid #ddd;
+	background-color:#fff;
+	border-radius:4px}
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-top:40px;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #eeeeee;
+  text-align:center;
+}
+table {
+	font-size:16px;
+	border-collapse: collapse;
+	margin:auto;
+    width: 97%;
+}
+table, th, td {
+    border: 3px solid white;
+}
+th, td{
+	height: 30px;
+}
+td{
+	background-color: #eeeeee;}
+#th {
+    background-color: #4e4e4e;
+    text-align: right;
+    color: white;
+}
+#tc {
+	text-align: center;
+}
+#tb {
+	text-align: left;
+    background-color: #777777;
+    color: white;
+}
+
+td{
+	text-align:center}
+#sboxed{
+	color:solid balck;
+	margin-top:10px;
+	padding:10px;
+	border:1px solid #ddd;
+	background-color:#fff;
+	border-radius:4px}

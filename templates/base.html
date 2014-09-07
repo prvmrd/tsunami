@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<head>
+	<link rel="icon" type="image/png" href="/static/img/icon.ico">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Tsunami Warning System</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/static/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<head>
+<script>
+function loadScript()
+{
+var script = document.createElement("script");
+script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false&callback=initialize";
+document.body.appendChild(script);
+}
+
+window.onload = loadScript;
+</script>
+<script>
+function initialize()
+{
+var asea=new google.maps.LatLng(20.200,67.33);
+var mapProp = {
+  center:new google.maps.LatLng(23.200,64.33),
+  zoom:6,
+  mapTypeId:google.maps.MapTypeId.HYBRID
+  };
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker=new google.maps.Marker({
+  position:asea,
+  optimized: false,
+  {% if alert == true %}
+	icon:'/static/img/alert.gif'
+  {% else %}
+	icon:'/static/img/normal.gif'
+  {% endif %}
+  });
+
+var chabahar=new google.maps.LatLng(25.29064622708976, 60.634918212890625);
+var marker2=new google.maps.Marker({
+  position:chabahar,
+  icon:'/static/img/um.png'
+  });
+marker2.setMap(map);
+marker.setMap(map);
+var img = '<a href="/plot"> <img src="{{ url_for('plot', filename='WCH.png') }}"width="240" height="120" alt="Station 23226"></a>' 
+var infowindow = new google.maps.InfoWindow({
+  content:img
+  });
+
+google.maps.event.addListener(map, 'mouseover', function() {
+  infowindow.open(map,marker);
+  });
+google.maps.event.addListener(marker, 'click', function() {
+  infowindow.open(map,marker);
+  });
+
+var infowindow2 = new google.maps.InfoWindow({
+  content: "Chabahar"
+  });
+
+google.maps.event.addListener(marker2, 'click', function() {
+  infowindow2.open(map,marker2);
+  });
+
+}
+
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+</head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index">Tsunami Warning system</a>
+        </div>
+        <div style="height: 0.616667px;" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/index">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <article id="boxed">
+
+{% block content %}{% endblock %}
+     </article>
+     
+<footer class="footer">
+	<hr> </hr>
+	<br>CopyLeft © 2014 by Mohammad Moradi. <a href="http://oceanography.blog.ir/">Visit Oceanography</a>
+</footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
+  
+
+</body></html>

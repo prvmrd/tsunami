@@ -1,0 +1,23 @@
+
+
+#th {
+    background-color: #4e4e4e;
+    text-align: right;
+    color: white;
+}
+#tb {
+	text-align: left;
+    background-color: #777777;
+    color: white;
+}
+
+td{
+	text-align:center}
+#sboxed{
+	color:solid balck;
+	margin-top:10px;
+	padding:10px;
+	border:1px solid #ddd;
+	background-color:#fff;
+	border-radius:4px}
+

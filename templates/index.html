@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+      <div class="starter-template">
+        <h4><b>System Description</b></h4>
+		<hr style="margin: 10px 0" />
+        <p>This system get data from <a href="www.ndbc.noaa.gov/dart.shtml">DART®</a>
+		project every five minutes, and check water column height as well as DART buoy state mode,
+		 if tsunami detected, an email will send to spcified address.
+		</p>
+	<table>
+		<caption><center><div id="googleMap" style="width:99%; height:350px;"></div></center></caption>
+	<thead>
+	 <tr id ="th">
+		<th>Data</th><th id="tc">Mean Height</th><th id="tc">Maximum Hieght</th><th id="tc">Minimum Hieght</th><th id="tc">Latest Height</th>
+	 </tr>
+	</thead>
+	<thead>
+	<th id="tb">Height (m)</th><td>{{ meanheight }}</td><td id="center">{{ maxheight }}</td>
+	<td id="center">{{ minheight }}</td><td id="center">{{ lastHeight }}</td>
+	<tr>
+	<th id="tb">Date (GMT)</th><td>{{ today }}</td><td>{{ maxtime }}</td><td>{{ mintime }}</td>
+	<td>{{ lasttime }}</td>
+	</tr>
+	</thead>
+
+	</table>
+	</div>
+{% endblock %}
