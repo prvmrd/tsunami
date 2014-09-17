@@ -6,8 +6,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 @app.route('/')
 @app.route('/index')
 def index():
-	data = pd.read_csv(os.path.join(BASE_DIR + '/app/static/report/', 'data_table.csv'))
-	report = open(os.path.join(BASE_DIR + '/app/static/report/', 'report.cfg'))
+	data = pd.read_csv(os.path.join(BASE_DIR + 'static/report/', 'data_table.csv'))
+	report = open(os.path.join(BASE_DIR + 'static/report/', 'report.cfg'))
 	if report.read() == "True":
 		alert = True
 	else:
@@ -32,7 +32,7 @@ def contact():
 	return render_template('contact.html')
 @app.route('/plot')
 def plot():
-	img = os.path.join(BASE_DIR + '/app/data/WCH.png')
+	img = os.path.join(BASE_DIR + 'data/WCH.png')
 	return send_file(img, mimetype='image/png')
 
 if __name__ == "__main__":
