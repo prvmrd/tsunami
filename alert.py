@@ -1,3 +1,4 @@
+# Tsunami Warning System By Mohammad Moradi All Rights Reserved
 # -*- coding: utf-8 -*-
 from BeautifulSoup import BeautifulSoup as bsp
 from email.MIMEMultipart import MIMEMultipart
